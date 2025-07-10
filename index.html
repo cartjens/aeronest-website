@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AeroNest Visuals</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet" />
+  <style>
+    /* Reset & base */
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #f5f7fa;
+      color: #222;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    /* Navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      background: #1a1a1a;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    nav .logo {
+      font-weight: 700;
+      font-size: 1.6rem;
+      color: #ff6b00;
+      letter-spacing: 1px;
+      cursor: default;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li a {
+      color: #eee;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 5px 10px;
+      transition: background 0.3s ease;
+      border-radius: 6px;
+    }
+    nav ul li a:hover,
+    nav ul li a:focus {
+      background: #ff6b00;
+      color: #fff;
+    }
+
+    /* Hero Section */
+    header {
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1573497491208-6b1acb260507?auto=format&fit=crop&w=1600&q=90') center/cover no-repeat;
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 0 20px;
+    }
+    header h1 {
+      font-size: 3.5rem;
+      margin: 0;
+      letter-spacing: 2px;
+      text-shadow: 0 3px 8px rgba(0,0,0,0.7);
+    }
+    header p {
+      font-size: 1.4rem;
+      margin: 15px 0 30px;
+      max-width: 600px;
+      font-weight: 300;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+    }
+    .btn-primary {
+      background: #ff6b00;
+      padding: 14px 32px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 30px;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(255,107,0,0.6);
+      transition: background 0.3s ease;
+    }
+    .btn-primary:hover {
+      background: #e05a00;
+    }
+    .btn-group {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Section Styles */
+    section {
+      max-width: 1100px;
+      margin: 80px auto;
+      padding: 0 20px;
+    }
+    h2.section-title {
+      text-align: center;
+      font-weight: 600;
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      color: #333;
+      letter-spacing: 1px;
+    }
+
+    /* Portfolio Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 24px;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    /* Services Cards */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
+      gap: 35px;
+    }
+    .service-card {
+      background: white;
+      border-radius: 18px;
+      padding: 30px 25px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.07);
+      transition: box-shadow 0.3s ease;
+    }
+    .service-card:hover {
+      box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+    }
+    .service-card h3 {
+      margin-top: 0;
+      color: #ff6b00;
+      font-weight: 700;
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+    }
+    .service-card ul {
+      margin: 0;
+      padding-left: 20px;
+      color: #555;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    /* Contact Form */
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      padding: 40px 35px;
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    }
+    .contact-form label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #333;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 14px 18px;
+      margin-bottom: 20px;
+      border: 1.8px solid #ddd;
+      border-radius: 12px;
+      font-size: 1rem;
+      resize: vertical;
+      transition: border-color 0.3s ease;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #ff6b00;
+      outline: none;
+    }
+    .contact-form button {
+      background: #ff6b00;
+      color: white;
+      border: none;
+      padding: 15px 0;
+      width: 100%;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(255,107,0,0.6);
+      transition: background 0.3s ease;
+    }
+    .contact-form button:hover {
+      background: #e05a00;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      background: #1a1a1a;
+      color: white;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 2.4rem;
+      }
+      header p {
+        font-size: 1rem;
+      }
+      nav ul {
+        gap: 15px;
+      }
+      nav ul li a {
+        font-size: 0.9rem;
+      }
+      .btn-primary {
+        font-size: 1rem;
+        padding: 12px 26px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">AeroNest Visuals</div>
+    <ul>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <h1>Drone Photography & Video for Real Estate & Airbnbs</h1>
+    <p>Stunning aerial visuals to elevate your property listings in Boise, ID</p>
+    <div class="btn-group">
+      <a href="#contact" class="btn-primary">Book a Shoot</a>
+      <a href="#portfolio" class="btn-primary" style="background:#333;">View Portfolio</a>
+    </div>
+  </header>
+
+  <section id="portfolio">
+    <h2 class="section-title">Portfolio</h2>
+    <div class="gallery">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161c45836?auto=format&fit=crop&w=800&q=80" alt="Drone shot of house" />
+      <img src="https://images.unsplash.com/photo-1600585154316-00c8857eebc2?auto=format&fit=crop&w=800&q=80" alt="Airbnb aerial view" />
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Modern house drone photo" />
+      <img src="https://images.unsplash.com/photo-1470770903676-69b98201ea1c?auto=format&fit=crop&w=800&q=80" alt="Luxury home aerial" />
+      <img src="https://images.unsplash.com/photo-1542224566-4e4eecb8a07f?auto=format&fit=crop&w=800&q=80" alt="Sunset aerial house" />
+      <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=800&q=80" alt="Airbnb pool aerial" />
+    </div>
+  </section>
+
+  <section id="services">
+    <h2 class="section-title">Services & Pricing</h2>
+    <div class="services">
+      <div class="service-card">
+        <h3>Starter Aerial Package – $150</h3>
+        <ul>
+          <li>10 professionally edited drone photos</li>
+          <li>30-second cinematic flyover video</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <h3>Premium Listing Package – $300</h3>
+        <ul>
+          <li>Drone photos + video</li>
+          <li>Interior walkthrough (using phone gimbal)</li>
+          <li>Vertical social media reel</li>
+          <li>48-hour turnaround guaranteed</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <h3>Custom Add-ons</h3>
+        <ul>
+          <li>Twilight shoot +$75</li>
+          <li>Rush delivery +$50</li>
+          <li>Social media reel editing +$50</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2 class="section-title">Contact Us</h2>
+    <form class="contact-form" action="mailto:youremail@example.com" method="POST" enctype="text/plain">
+      <label for="name">Your Name *</label>
+      <input type="text" id="name" name="Name" placeholder="Your full name" required />
+      
+      <label for="email">Your Email *</label>
+      <input type="email" id="email" name="Email" placeholder="your.email@example.com" required />
+      
+      <label for="message">Message</label>
+      <textarea id="message" name="Message" rows="5" placeholder="Tell us about your property or project..."></textarea>
+      
+      <button type="submit">Send Inquiry</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 AeroNest Visuals • Boise, Idaho
+  </footer>
+
+</body>
+</html>
+
+
